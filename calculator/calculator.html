@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstrap-5.3.6/dist/css/bootstrap.min.css"rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <h1 align="center">calculator</h1>
+    
+    <input type="number" id="number1" placeholder="enter number1">
+    <input type="number" id="number2" placeholder="enter number2"><br><br>
+    
+    <button class="btn btn-primary " onclick="add()">ADD</button>
+    <button class="btn btn-secondary"onclick="sub()">SUB</button>
+    <button class="btn btn-warning"onclick="mul()">MUL</button>
+    <button class="btn btn-info"onclick="add()">DIV</button>
+    <h1 id="h1"></h1>
+    <h1 id="h2"></h1>
+    <h1 id="h3"></h1>
+    <h1 id="h4"></h1>
+
+
+</body>
+<script>
+    function add()
+    {
+        a=Number(document.getElementById('number1').value);
+        b=Number(document.getElementById('number2').value);
+        document.getElementById('h1').innerHTML=a+b;
+    }
+    function sub()
+    {
+        a=Number(document.getElementById('number1').value);
+        b=Number(document.getElementById('number2').value);
+        document.getElementById('h1').innerHTML=a-b;
+    }
+    function mul()
+    {
+        a=Number(document.getElementById('number1').value);
+        b=Number(document.getElementById('number2').value);
+        document.getElementById('h1').innerHTML=a*b;
+    }
+    function div()
+    {
+        a=Number(document.getElementById('number1').value);
+        b=Number(document.getElementById('number2').value);
+        document.getElementById('h1').innerHTML=a/b;
+    }
+</script>
+</html>
