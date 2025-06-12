@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Validation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      font-style: oblique;
+      
+    }
+    input, button {
+      display: block;
+      margin: 10px 0;
+      padding: 10px;
+      width: 300px;
+      
+    }
+    .error {
+      color: red;
+      font-size: 15px;
+
+    }
+  </style>
+</head>
+<body>
+
+  <h2 align="center"><u>Registration Form</u></h2>
+  <form id="myForm" onsubmit="return validateForm()">
+    <label>Username:</label>
+    <input type="text" id="username" placeholder="Enter your name">
+    <span id="usernameError" class="error"></span>
+    <label>Email:</label>
+    <input type="text" id="email" placeholder="Enter your email">
+    <span id="emailError" class="error"></span>
+    <label>Password:</label>
+    <input type="password" id="password" placeholder="Enter password">
+    <span id="passwordError" class="error"></span>
+    <label>Phone:</label>
+    <input type="tel" id="phone" placeholder="Enter phone">
+    <span id="phoneError" class="error"></span>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    function validateForm() {
+      document.getElementById("usernameError").innerText="";
+      document.getElementById("emailError").innerText="";
+      document.getElementById("passwordError").innerText="";
+      document.getElementById("phoneError").innerText="";
+      let username=document.getElementById("username").value.trim();
+      let email=document.getElementById("email").value.trim();
+      let password=document.getElementById("password").value;
+      let phone=document.getElementById("phone").value;
+      let isValid=true;
+      if (username==="") {
+        document.getElementById("usernameError").innerText="Username is required.";
+        isValid=false;
+      }
+      let emailPattern=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if(email==="") {
+        document.getElementById("emailError").innerText="Email is required.";
+        isValid=false;
+      } else if(!emailPattern.test(email)) {
+        document.getElementById("emailError").innerText="Invalid email format.";
+        isValid=false;
+      }
+      if (password.length<8) {
+        document.getElementById("passwordError").innerText="Password must be at least 8 characters.";
+        isValid=false;
+      }
+      if (phone.length<10) {
+        document.getElementById("phoneError").innerText="Phone must be at least 10 characters.";
+        isValid=false;
+      }
+      
+      return isValid; 
+    }
+  </script>
+</body>
+</html>
